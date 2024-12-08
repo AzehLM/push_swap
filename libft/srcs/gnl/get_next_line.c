@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 19:40:00 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/05 19:40:17 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/08 18:09:55 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*get_line(char *buffer)
 		i++;
 	if (buffer[i] == '\n')
 		i++;
-	line = ft_substr(buffer, 0, i);
+	line = ft_substr_secured(buffer, 0, i);
 	return (line);
 }
 

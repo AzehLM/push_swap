@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 19:41:27 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/05 19:41:37 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/08 18:09:44 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ size_t	ft_strlen(const char *str);
 
 char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin(const char *s1, const char *s2);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_substr_secured(char const *s, unsigned int start, size_t len);
 char	*get_next_line(int fd);
 
 #endif

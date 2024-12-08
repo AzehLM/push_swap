@@ -6,12 +6,11 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 13:17:36 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/08 16:48:43 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/08 19:43:23 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 static void	free_av2(char **split, int *stack_tmp, size_t size)
 {
@@ -28,31 +27,75 @@ static void	free_av2(char **split, int *stack_tmp, size_t size)
 	free(stack_tmp);
 }
 
-int	*parse_string(const char *str, int **stack_tmp)
+static int	is_strdigit(const char *str)
+{
+	size_t	i;
+	
+	i = 0;
+	if (str[0] == '-' || str[0] == '+')
+		i++;
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	check_out_of_range(const char *str)
+{
+	long long	res;
+	int	sign;
+	int	i;
+	
+	i = 0;
+	res = 0;
+	sign = 1;
+	if (str[i] == '-' || str[i] == '+')
+		if (str[i++] == '-')
+			sign = -1;
+	while (str[i] && ft_isdigit(str[i]))
+	{
+		res = res * 10 + (str[i] - '0');
+
+		if (sign == 1 && res > INT_MAX)
+			return (0);
+		if (sign == -1 && -res < INT_MIN)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	parse_string(const char *str, int **stack_tmp)
 {
 	char	**split;
-	size_t	i;
-	size_t	size;
+	int	i;
+	int	size;
 	
 	split = ft_split(str, ' ');
 	if (!split)
 		exit_with_error(ERR_MALLOC);
 	size = 0;
 	while (split[size])
-		split++;
+		size++;
 	*stack_tmp = malloc(sizeof(int) * size);
 	if (!(*stack_tmp))
 		exit_with_error(ERR_MALLOC);
 	i = 0;
 	while (i < size)
 	{
-		if (!is_strdigit(split[i]))
+		if (!is_strdigit(split[i]) || !check_out_of_range(split[i]))
 		{
-			free_all(split, stack_tmp, size);
-			exit_with_error(ERR_NO_NUMERIC);
+			free_av2(split, *stack_tmp, size);
+			if (!is_strdigit(split[i])) 
+				exit_with_error(ERR_NO_NUMERIC);
+			exit_with_error(ERR_OUT_OF_RANGE);
 		}
 		(*stack_tmp)[i] = ft_atoi(split[i]);
-		if (str[i] )
+		ft_printf("stack_tmp[%d] : %d\n", i, (*stack_tmp)[i]);
+		i++;
 	}
 	return (0);
 }

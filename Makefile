@@ -7,7 +7,7 @@ override SRCS		= $(addprefix $(SRCSDIR), $(addsuffix .c, $(SRC)))
 SRC 		= \
 	main \
 	check_arg \
-
+	parse \
 
 BUILD_DIR	:= .obj/
 OBJS 		:= $(patsubst $(SRCSDIR)%.c,$(BUILD_DIR)%.o,$(SRCS))

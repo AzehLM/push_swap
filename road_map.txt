@@ -32,3 +32,19 @@ Limites de mémoire atteintes ou allocation dynamique échouée.
 
 
 TO DO FIX THINGS
+
+
+
+"1 2 3 +4 -5 oui 3 6"
+
+split[0] = "1054105405405740"
+split[1] = "2"
+split[2] = "3"
+split[3] = "+4"
+split[4] = "-5"
+split[5] = "oui"
+split[6] = "3"
+split[7] = "6"
+
+47
+48

@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 19:40:45 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/05 19:40:50 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/08 18:09:13 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-char	*ft_strdup(const char *str)
+char	*ft_strdup_secured(const char *str)
 {
 	char		*dup;
 	size_t		len;
@@ -51,9 +51,9 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	if (!s1 && !s2)
 		return (NULL);
 	if (!s1)
-		return (ft_strdup(s2));
+		return (ft_strdup_secured(s2));
 	if (!s2)
-		return (ft_strdup(s1));
+		return (ft_strdup_secured(s1));
 	len_s1 = (size_t) ft_strlen(s1);
 	res = malloc(sizeof(char) * (len_s1 + ft_strlen(s2) + 1));
 	if (!res)
@@ -68,7 +68,7 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	return (res);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr_secured(char const *s, unsigned int start, size_t len)
 {
 	char		*res;
 	size_t		i;

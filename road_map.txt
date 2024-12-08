@@ -1,0 +1,34 @@
+Pour 100/100:
+
+3 numbers = 2 max;
+5 numbers = 12 max;
+
+100 numbers = 700 max
+500 numbers = 5500 max
+
+Les nombres peuvent etre positif ou negatif.
+
+Check error mandatory part:
+
+- Non numeric parameters : Error\n
+- Number above INT_MAX : Error\n
+- No parameters : gives the promt back.
+- Pas de doublon : Error\n
+
+Check error bonus part:
+
+- Valid parameters --> write action that doesnt exist during instruction phase.
+- Valid parameters --> write one or several action with spaces before/after the action during the instruction phase.
+
+Both display : Error\n
+
+
+FAIRE DES FONCTIONS POUR CHAQUE SWAP/OPERATION
+
+Exemple d'erreurs qui peuvent nécessiter exit :
+Arguments non valides (parsing incorrect).
+Limites de mémoire atteintes ou allocation dynamique échouée.
+
+
+
+TO DO FIX THINGS

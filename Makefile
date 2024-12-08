@@ -6,15 +6,16 @@ override SRCS		= $(addprefix $(SRCSDIR), $(addsuffix .c, $(SRC)))
 
 SRC 		= \
 	main \
+	check_arg \
 
 
-BUILD_DIR	:= .ps_obj/
+BUILD_DIR	:= .obj/
 OBJS 		:= $(patsubst $(SRCSDIR)%.c,$(BUILD_DIR)%.o,$(SRCS))
 DEPS		:= $(OBJS:.o=.d)
 
 CC			:= cc
 CFLAGS		:= -Wall -Wextra -Werror -g3
-CPPFLAGS	:= -MMD -MP -I . -I . -I libft/ -I libft/incs/
+CPPFLAGS	:= -MMD -MP -I incs/ -I libft/incs/
 
 RM			:= rm -f
 RMDIR		+= -r
@@ -28,7 +29,7 @@ DIR_DUP		= mkdir -p $(BUILD_DIR)
 .PHONY: all
 all: $(NAME)
 
-$(NAME): libft/libft.a $(OBJS)
+$(NAME): libft/libft.a Makefile $(OBJS) 
 	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $(NAME) $(OBJS) -L libft -lft
 	@echo "\n$(GREEN_BOLD)✓ $(NAME) is ready$(RESETC)"
 

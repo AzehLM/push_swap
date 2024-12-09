@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 11:45:44 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/09 14:17:49 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/09 17:09:28 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	sort_tmp(int *stack_tmp, int size)
 {
-	int tmp = 0;
-	int i = 0;
-	int min;
-	int j;
+	static int	tmp = 0;
+	static int	i = 0;
+	static int	min;
+	static int	j;
 
 	while (i < size - 1)
 	{
@@ -35,7 +35,6 @@ void	sort_tmp(int *stack_tmp, int size)
 			stack_tmp[i] = stack_tmp[min];
 			stack_tmp[min] = tmp;
 		}
-		
 		i++;
 	}
 	i = 0;

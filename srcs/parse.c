@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 13:17:36 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/09 10:45:31 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/09 12:27:45 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,13 @@ static void	parse_string_error_management(int size, char **spt, int **stack_tmp)
 			exit_with_error(ERR_OUT_OF_RANGE);
 		}
 		(*stack_tmp)[i] = ft_atoi(spt[i]);
-		ft_printf("stack_tmp[%d] : %d\n", i, (*stack_tmp)[i]);
 		i++;
+		sort_tmp(*stack_tmp, size);
+		// if (!check_duplicates(*stack_tmp, size))
+		// {
+		// 	free_av1(spt, *stack_tmp, size);
+		// 	exit_with_error(ERR_DUPLICATE);
+		// }
 	}
 }
 
@@ -110,5 +115,6 @@ int	parse_string(const char *str, int **stack_tmp)
 	}
 	i = 0;
 	parse_string_error_management(size, split, stack_tmp);
+
 	return (0);
 }

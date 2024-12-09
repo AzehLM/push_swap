@@ -8,6 +8,7 @@ SRC 		= \
 	check_arg \
 	main \
 	parse \
+	sort_tmp \
 
 BUILD_DIR	:= .obj/
 OBJS 		:= $(patsubst $(SRCSDIR)%.c,$(BUILD_DIR)%.o,$(SRCS))

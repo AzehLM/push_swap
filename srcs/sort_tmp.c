@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   sort_tmp.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/07 14:17:21 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/09 12:15:50 by gueberso         ###   ########.fr       */
+/*   Created: 2024/12/09 11:45:44 by gueberso          #+#    #+#             */
+/*   Updated: 2024/12/09 12:24:18 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+void	sort_tmp(int *stack_tmp, int size)
 {
-	int	*stack_a;
-	int	*stack_b;
-	int	*stack_tmp;
+	int tmp = 0;
+	int i = 0;
+	int min;
+	int j;
 
-	stack_tmp = NULL;
-	(void) stack_a;
-	(void) stack_b;
-	check_arg(ac, av, &stack_tmp);
-	int	i = 0;
-	ft_printf("--------\n");
-	while (*stack_tmp)
-		ft_printf("stack_tmp[%d] : %d\n", i++, *stack_tmp++);
-	ft_printf("--------\n");
-	exit(42);
-	
-	free(stack_tmp);
-	return (0);
+	while (i < size - 1)
+	{
+		min = i;
+		j = i + 1;
+		while (j < size)
+		{
+			if (stack_tmp[j] < stack_tmp[min])
+				min = j;
+			j++;
+		}
+		if (min != i)
+		{
+			tmp = stack_tmp[i];
+			stack_tmp[i] = stack_tmp[min];
+			stack_tmp[min] = tmp;
+		}
+		i++;
+	}
 }

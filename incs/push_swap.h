@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 14:01:13 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/09 10:11:25 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/09 10:46:19 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ typedef enum e_op
 	RRR,
 }	t_op;
 
-int		check_arg(int ac, char **av, int *stack_tmp);
+int		check_arg(int ac, char **av, int **stack_tmp);
 void	exit_with_error(t_error error);
 int		parse_string(const char *str, int **stack_tmp);
 

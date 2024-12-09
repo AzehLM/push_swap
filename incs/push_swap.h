@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 14:01:13 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/09 16:49:30 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/09 17:12:33 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,6 @@ void	sort_tmp(int *stack_tmp, int size);
 
 int		check_out_of_range(const char *str);
 int		is_strdigit(const char *str);
-
-
 
 int		parse_params(int ac, char **av, int **stack_tmp);
 

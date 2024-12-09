@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:07:09 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/09 17:08:38 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/09 17:13:59 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	parse_params(int ac, char **av, int **stack_tmp)
 	if (!check_duplicates(*stack_tmp, ac - 1))
 	{
 		free(*stack_tmp);
+		*stack_tmp = NULL;
 		exit_with_error(ERR_DUPLICATE);
 	}
 	return (0);

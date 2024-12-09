@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 14:01:13 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/08 18:05:28 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/09 10:11:25 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@
 
 typedef enum e_error
 {
-	ERR_NO_PARAMETERS = 1,
+	SUCCESS,
+	ERR_NO_PARAMETERS,
 	ERR_NO_NUMERIC,
 	ERR_OUT_OF_RANGE,
 	ERR_DUPLICATE,

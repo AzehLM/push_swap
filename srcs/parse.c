@@ -6,25 +6,25 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 13:17:36 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/08 19:43:23 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/09 10:23:26 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	free_av2(char **split, int *stack_tmp, size_t size)
+static void	free_av1(char **split, int *stack_tmp, size_t size)
 {
 	size_t	i;
 
-	i = 0;
-	while (i < size)
+	if (split)
 	{
-		free(split[i]);
-		split[i] = NULL;
-		i++;
+		i = 0;
+		while (i < size && split[i])
+			free(split[i++]);
+		free(split);
 	}
-	free(split);
-	free(stack_tmp);
+	if (stack_tmp)
+		free(stack_tmp);
 }
 
 static int	is_strdigit(const char *str)
@@ -82,15 +82,21 @@ int	parse_string(const char *str, int **stack_tmp)
 		size++;
 	*stack_tmp = malloc(sizeof(int) * size);
 	if (!(*stack_tmp))
+	{
+		free_av1(split, *stack_tmp, size);
 		exit_with_error(ERR_MALLOC);
+	}
 	i = 0;
 	while (i < size)
 	{
-		if (!is_strdigit(split[i]) || !check_out_of_range(split[i]))
+		if (!is_strdigit(split[i]))
 		{
-			free_av2(split, *stack_tmp, size);
-			if (!is_strdigit(split[i])) 
-				exit_with_error(ERR_NO_NUMERIC);
+			free_av1(split, *stack_tmp, size);
+			exit_with_error(ERR_NO_NUMERIC);
+		}
+		if (!check_out_of_range(split[i]))
+		{
+			free_av1(split, *stack_tmp, size);
 			exit_with_error(ERR_OUT_OF_RANGE);
 		}
 		(*stack_tmp)[i] = ft_atoi(split[i]);

@@ -6,26 +6,19 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 16:53:40 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/08 18:29:55 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/09 10:16:16 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	exit_with_error(t_error error)
+void	exit_with_error(t_error error_code)
 {
-	if (error == ERR_NO_PARAMETERS)
+	if (error_code == ERR_NO_PARAMETERS)
 		exit(ERR_NO_PARAMETERS);
 	else
 		write(2, "Error\n", 6);
-	if (error == ERR_NO_NUMERIC)
-		exit(ERR_NO_NUMERIC);
-	else if (error == ERR_OUT_OF_RANGE)
-		exit(ERR_OUT_OF_RANGE);
-	else if (error == ERR_DUPLICATE)
-		exit(ERR_DUPLICATE);
-	else
-		exit(ERR_UNKNOWN);
+	exit(error_code);
 }
 
 int	check_arg(int ac, char **av, int *stack_tmp)

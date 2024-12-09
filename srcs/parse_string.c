@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 13:17:36 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/09 17:08:23 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/09 17:47:40 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	free_av1(char **split, int *stack_tmp, size_t size)
 		free(stack_tmp);
 }
 
-static void	parse_string_error_management(int size, char **spt, int **stack_tmp)
+static void	parse_string_err_management(int size, char **spt, int **stack_tmp)
 {
 	int	i;
 
@@ -66,7 +66,7 @@ int	parse_string(const char *str, int **stack_tmp)
 		free_av1(split, *stack_tmp, size);
 		exit_with_error(ERR_MALLOC);
 	}
-	parse_string_error_management(size, split, stack_tmp);
+	parse_string_err_management(size, split, stack_tmp);
 	sort_tmp(*stack_tmp, size);
 	if (!check_duplicates(*stack_tmp, size))
 	{

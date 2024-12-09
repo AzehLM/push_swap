@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:07:09 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/09 17:40:51 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/09 17:47:06 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,13 @@ static void	parse_params_err_management(int i, char **av, int **stack_tmp)
 		if (!is_strdigit(av[i]))
 		{
 			free(*stack_tmp);
+			*stack_tmp = NULL;
 			exit_with_error(ERR_NO_NUMERIC);
 		}
 		if (!check_out_of_range(av[i]))
 		{
 			free(*stack_tmp);
+			*stack_tmp = NULL;
 			exit_with_error(ERR_OUT_OF_RANGE);
 		}
 		(*stack_tmp)[i - 1] = ft_atoi(av[i]);

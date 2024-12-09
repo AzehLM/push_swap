@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:25:00 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/09 16:25:14 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/09 17:51:55 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,19 @@ int	check_out_of_range(const char *str)
 		if (sign == 1 && res > INT_MAX)
 			return (0);
 		if (sign == -1 && (res * -1) < INT_MIN)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	check_duplicates(int *stack_tmp, int size)
+{
+	static int	i = 0;
+
+	while (i < size - 1)
+	{
+		if (stack_tmp[i] == stack_tmp[i + 1])
 			return (0);
 		i++;
 	}

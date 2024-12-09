@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 11:45:44 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/09 12:35:07 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/09 14:17:49 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,7 @@ void	sort_tmp(int *stack_tmp, int size)
 		
 		i++;
 	}
-	while (*stack_tmp)
-		ft_printf("stack_tmp[%d] : %d\n", i++, *stack_tmp++);
-	ft_printf("--------\n");
+	i = 0;
 }
 
 int	check_duplicates(int *stack_tmp, int size)

@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 13:17:36 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/09 17:47:40 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/10 00:20:57 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ static void	parse_string_err_management(int size, char **spt, int **stack_tmp)
 	int	i;
 
 	i = 0;
+	if (size == 0)
+	{
+		free(spt);
+		exit_with_error(ERR_EMPTY_STRING);
+	}
 	while (i < size)
 	{
 		if (!is_strdigit(spt[i]))
@@ -67,12 +72,12 @@ int	parse_string(const char *str, int **stack_tmp)
 		exit_with_error(ERR_MALLOC);
 	}
 	parse_string_err_management(size, split, stack_tmp);
-	sort_tmp(*stack_tmp, size);
-	if (!check_duplicates(*stack_tmp, size))
-	{
-		free_av1(split, *stack_tmp, size);
-		exit_with_error(ERR_DUPLICATE);
-	}
+	sort_tmp(*stack_tmp, size); 				// toute cette partie peut sortir de la fonction
+	if (!check_duplicates(*stack_tmp, size))	// on est plus en train de parse
+	{											//		
+		free_av1(split, *stack_tmp, size);		//
+		exit_with_error(ERR_DUPLICATE);			//
+	}											// jusquici
 	free_av1(split, NULL, size);
 	return (0);
 }

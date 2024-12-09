@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 16:53:40 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/09 16:46:30 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/09 23:27:36 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	exit_with_error(t_error error_code)
 	if (error_code == ERR_NO_PARAMETERS)
 		exit(ERR_NO_PARAMETERS);
 	else
-		write(2, "Error\n", 6);
+		write(STDERR_FILENO, "Error\n", 6);
 	exit(error_code);
 }
 

@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 14:01:13 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/09 17:54:01 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/09 23:52:19 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef enum e_error
 	ERR_OUT_OF_RANGE,
 	ERR_DUPLICATE,
 	ERR_MALLOC,
+	ERR_EMPTY_STRING,
 	ERR_UNKNOWN
 }	t_error;
 

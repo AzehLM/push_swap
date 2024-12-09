@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 13:17:36 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/09 10:23:26 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/09 10:33:23 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	free_av1(char **split, int *stack_tmp, size_t size)
 static int	is_strdigit(const char *str)
 {
 	size_t	i;
-	
+
 	i = 0;
 	if (str[0] == '-' || str[0] == '+')
 		i++;
@@ -46,9 +46,9 @@ static int	is_strdigit(const char *str)
 int	check_out_of_range(const char *str)
 {
 	long long	res;
-	int	sign;
-	int	i;
-	
+	int			sign;
+	int			i;
+
 	i = 0;
 	res = 0;
 	sign = 1;
@@ -58,22 +58,44 @@ int	check_out_of_range(const char *str)
 	while (str[i] && ft_isdigit(str[i]))
 	{
 		res = res * 10 + (str[i] - '0');
-
 		if (sign == 1 && res > INT_MAX)
 			return (0);
-		if (sign == -1 && -res < INT_MIN)
+		if (sign == -1 && (res * -1) < INT_MIN)
 			return (0);
 		i++;
 	}
 	return (1);
 }
 
+static void	parse_string_error_management(int size, char **spt, int **stack_tmp)
+{
+	int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		if (!is_strdigit(spt[i]))
+		{
+			free_av1(spt, *stack_tmp, size);
+			exit_with_error(ERR_NO_NUMERIC);
+		}
+		if (!check_out_of_range(spt[i]))
+		{
+			free_av1(spt, *stack_tmp, size);
+			exit_with_error(ERR_OUT_OF_RANGE);
+		}
+		(*stack_tmp)[i] = ft_atoi(spt[i]);
+		ft_printf("stack_tmp[%d] : %d\n", i, (*stack_tmp)[i]);
+		i++;
+	}
+}
+
 int	parse_string(const char *str, int **stack_tmp)
 {
 	char	**split;
-	int	i;
-	int	size;
-	
+	int		i;
+	int		size;
+
 	split = ft_split(str, ' ');
 	if (!split)
 		exit_with_error(ERR_MALLOC);
@@ -87,21 +109,6 @@ int	parse_string(const char *str, int **stack_tmp)
 		exit_with_error(ERR_MALLOC);
 	}
 	i = 0;
-	while (i < size)
-	{
-		if (!is_strdigit(split[i]))
-		{
-			free_av1(split, *stack_tmp, size);
-			exit_with_error(ERR_NO_NUMERIC);
-		}
-		if (!check_out_of_range(split[i]))
-		{
-			free_av1(split, *stack_tmp, size);
-			exit_with_error(ERR_OUT_OF_RANGE);
-		}
-		(*stack_tmp)[i] = ft_atoi(split[i]);
-		ft_printf("stack_tmp[%d] : %d\n", i, (*stack_tmp)[i]);
-		i++;
-	}
+	parse_string_error_management(size, split, stack_tmp);
 	return (0);
 }

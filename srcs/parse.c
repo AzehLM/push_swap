@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 13:17:36 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/09 14:41:34 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/09 16:27:04 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,46 +25,6 @@ static void	free_av1(char **split, int *stack_tmp, size_t size)
 	}
 	if (stack_tmp)
 		free(stack_tmp);
-}
-
-static int	is_strdigit(const char *str)
-{
-	size_t	i;
-
-	i = 0;
-	if (str[0] == '-' || str[0] == '+')
-		i++;
-	while (str[i])
-	{
-		if (!ft_isdigit(str[i]))
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-int	check_out_of_range(const char *str)
-{
-	long long	res;
-	int			sign;
-	int			i;
-
-	i = 0;
-	res = 0;
-	sign = 1;
-	if (str[i] == '-' || str[i] == '+')
-		if (str[i++] == '-')
-			sign = -1;
-	while (str[i] && ft_isdigit(str[i]))
-	{
-		res = res * 10 + (str[i] - '0');
-		if (sign == 1 && res > INT_MAX)
-			return (0);
-		if (sign == -1 && (res * -1) < INT_MIN)
-			return (0);
-		i++;
-	}
-	return (1);
 }
 
 static void	parse_string_error_management(int size, char **spt, int **stack_tmp)

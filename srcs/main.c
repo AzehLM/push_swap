@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 14:17:21 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/09 15:08:39 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/09 16:55:11 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,14 @@ int	main(int ac, char **av)
 	(void) stack_a;
 	(void) stack_b;
 	check_arg(ac, av, &stack_tmp);
+	int i = 0;
+	ft_printf("-------- Trié --------\n");
+	while (i < 4)
+	{
+		ft_printf("stack_tmp[%d] : %d\n", i, stack_tmp[i]);
+		i++;
+	}
+	ft_printf("----------------------\n");
 	free(stack_tmp); // replace by free_stacks --> functions to free every stacks before exiting program.
 	exit(SUCCESS);
 	return (0);

@@ -7,7 +7,9 @@ override SRCS		= $(addprefix $(SRCSDIR), $(addsuffix .c, $(SRC)))
 SRC 		= \
 	check_arg \
 	main \
-	parse \
+	parse_string \
+	parse_params \
+	parse_utils \
 	sort_tmp \
 
 BUILD_DIR	:= .obj/

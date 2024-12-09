@@ -29,22 +29,10 @@ Exemple d'erreurs qui peuvent nécessiter exit :
 Arguments non valides (parsing incorrect).
 Limites de mémoire atteintes ou allocation dynamique échouée.
 
+ROAD_MAP PARSING:
 
 
-TO DO FIX THINGS
-
-
-
-"1 2 3 +4 -5 oui 3 6"
-
-split[0] = "1054105405405740"
-split[1] = "2"
-split[2] = "3"
-split[3] = "+4"
-split[4] = "-5"
-split[5] = "oui"
-split[6] = "3"
-split[7] = "6"
-
-47
-48
+- Objectif final du parsing est de recuperer dans une int tableau d'int toutes les valeurs rentrees en parametre.
+- 2 possibilites : une string avec des nombres separes par des espaces OU pleins de parametres.
+- 3e possibilite : pas de parametre, on return sur le prompt.
+-- Premiere chose a faire si une seule string : 

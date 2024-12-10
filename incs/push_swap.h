@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 14:01:13 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/09 23:52:19 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/10 13:35:28 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 // # define SA "SA"
 // # define SA "SA"
 
-typedef enum e_error
+typedef enum e_exit
 {
 	SUCCESS,
 	ERR_NO_PARAMETERS,
@@ -36,7 +36,7 @@ typedef enum e_error
 	ERR_MALLOC,
 	ERR_EMPTY_STRING,
 	ERR_UNKNOWN
-}	t_error;
+}	t_exit_code;
 
 typedef enum e_op
 {

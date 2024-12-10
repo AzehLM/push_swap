@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 14:17:21 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/09 23:14:21 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/10 14:48:43 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@ int	main(int ac, char **av)
 	(void) stack_a;
 	(void) stack_b;
 	check_arg(ac, av, &stack_tmp);
+	get_stack_len(*stack_tmp);
 	int i = 0;
 	ft_printf("-------- Trié --------\n");
-	while (i < 4)
+	while (i < ac - 1)
 	{
 		ft_printf("stack_tmp[%d] : %d\n", i, stack_tmp[i]);
 		i++;

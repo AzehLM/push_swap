@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 14:01:13 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/10 13:35:28 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/10 13:39:25 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int		is_strdigit(const char *str);
 int		parse_string(const char *str, int **stack_tmp);
 int		parse_params(int ac, char **av, int **stack_tmp);
 
-void	exit_with_error(t_error error);
+void	exit_with_error(t_exit_code error);
 void	sort_tmp(int *stack_tmp, int size);
 
 #endif

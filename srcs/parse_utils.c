@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:25:00 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/09 23:20:16 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/15 00:22:48 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,14 @@ int	check_duplicates(int *stack_tmp, int size)
 		i++;
 	}
 	return (1);
+}
+
+int	get_stack_len(int *stack_tmp)
+{
+	int	len_stack;
+
+	len_stack = 0;
+	while (stack_tmp[len_stack] != '\0')
+		len_stack++;
+	return (len_stack);
 }

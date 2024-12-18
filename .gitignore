@@ -1,0 +1,11 @@
+.build/
+.obj/
+
+*.d
+*.o
+*.out
+
+libft.a
+push_swap
+DELETE.c
+

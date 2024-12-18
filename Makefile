@@ -11,6 +11,7 @@ SRC 		= \
 	parse_params \
 	parse_utils \
 	sort_tmp \
+	indexing \
 
 BUILD_DIR	:= .obj/
 OBJS 		:= $(patsubst $(SRCSDIR)%.c,$(BUILD_DIR)%.o,$(SRCS))

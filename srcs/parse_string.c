@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 13:17:36 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/10 00:20:57 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/18 14:47:53 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,3 +81,5 @@ int	parse_string(const char *str, int **stack_tmp)
 	free_av1(split, NULL, size);
 	return (0);
 }
+
+\

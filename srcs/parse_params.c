@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:07:09 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/09 17:49:46 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/18 17:10:54 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	parse_params(int ac, char **av, int **stack_tmp)
 	if (!(*stack_tmp))
 		exit_with_error(ERR_MALLOC);
 	parse_params_err_management(1, av, stack_tmp);
-	sort_tmp(*stack_tmp, ac - 1);
+	//sort_tmp(*stack_tmp, ac - 1);
 	if (!check_duplicates(*stack_tmp, ac - 1))
 	{
 		free(*stack_tmp);

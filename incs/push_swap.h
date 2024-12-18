@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 14:01:13 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/18 14:31:35 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/18 17:36:59 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,6 @@
 
 # include "libft.h"
 # include "ft_printf.h"
-# include <limits.h>
-
-// # define SA "SA"
-// # define SA "SA"
-// # define SA "SA"
-// # define SA "SA"
-// # define SA "SA"
-// # define SA "SA"
-// # define SA "SA"
-// # define SA "SA"
 
 typedef enum e_exit
 {
@@ -37,6 +27,26 @@ typedef enum e_exit
 	ERR_EMPTY_STRING,
 	ERR_UNKNOWN
 }	t_exit_code;
+
+typedef struct s_array
+{
+	int size;
+	int *addr;
+}	t_array;
+
+typedef struct s_stacks
+{
+	t_array a;
+	t_array b;
+	t_array tmp;
+}	t_stacks;
+
+	int	*a;
+	int	*b;
+	int	*tmp;
+	int	size_a;
+	int	size_b;
+	int	size_tmp;
 
 typedef enum e_op
 {

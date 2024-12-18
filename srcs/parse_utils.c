@@ -6,11 +6,12 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:25:00 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/15 00:22:48 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/18 15:43:12 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <limits.h>
 
 int	is_strdigit(const char *str)
 {

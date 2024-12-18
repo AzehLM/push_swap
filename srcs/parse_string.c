@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 13:17:36 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/18 14:47:53 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/18 17:11:30 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	parse_string(const char *str, int **stack_tmp)
 		exit_with_error(ERR_MALLOC);
 	}
 	parse_string_err_management(size, split, stack_tmp);
-	sort_tmp(*stack_tmp, size); 				// toute cette partie peut sortir de la fonction
+	//sort_tmp(*stack_tmp, size); 				// toute cette partie peut sortir de la fonction
 	if (!check_duplicates(*stack_tmp, size))	// on est plus en train de parse
 	{											//		
 		free_av1(split, *stack_tmp, size);		//

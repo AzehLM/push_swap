@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 14:17:21 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/18 14:42:59 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/18 17:41:57 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 int	main(int ac, char **av)
 {
-	int	*stack_a;
-	int	*stack_b;
-	int	*stack_tmp;
-	
+	int			*stack_a;
+	int			*stack_b;
+	int			*stack_tmp;
+	t_stacks	stacks;
+
+	init_stacks(stacks, size);
 	stack_tmp = NULL;
 	(void) stack_b;
 	(void) stack_a;
@@ -40,6 +42,6 @@ int	main(int ac, char **av)
 	}
 	ft_printf("----------------------\n");
 	free(stack_tmp); // replace by free_stacks --> functions to free every stacks before exiting program.
+	//free_stacks(stacks);
 	exit(SUCCESS);
-	return (0);
 }

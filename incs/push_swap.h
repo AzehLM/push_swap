@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 14:01:13 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/19 20:10:21 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/19 21:45:37 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ void	free_av1(char **split, int *stack, size_t size);
 void	free_stacks(t_stacks *stacks);
 void	indexing(t_stacks *stacks, int i, int rank);
 void	init_stacks(t_stacks *stacks, int size);
-void	sort_tmp(t_stacks *stacks);
 
 /*	----------- operations -------------------------------------------------- */
 

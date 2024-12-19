@@ -13,7 +13,7 @@ Check error mandatory part:
 - Non numeric parameters : Error\n
 - Number above INT_MAX : Error\n
 - No parameters : gives the promt back.
-- Pas de doublon : Error\n
+- Double : Error\n
 
 Check error bonus part:
 
@@ -35,7 +35,6 @@ ROAD_MAP PARSING:
 - Objectif final du parsing est de recuperer dans une int tableau d'int toutes les valeurs rentrees en parametre.
 - 2 possibilites : une string avec des nombres separes par des espaces OU pleins de parametres.
 - 3e possibilite : pas de parametre, on return sur le prompt.
--- Premiere chose a faire si une seule string : 
 
 
 NOMS FICHIERS:

@@ -16,7 +16,6 @@ SRC 		= \
 	pushs \
 	rev_rotate \
 	rotate \
-	sort_tmp \
 	swaps \
 
 BUILD_DIR	:= .obj/

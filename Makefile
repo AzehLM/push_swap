@@ -8,11 +8,16 @@ SRC 		= \
 	check_arg \
 	indexing \
 	init_stacks \
+	init_tab_operations \
 	main \
 	parse_params \
 	parse_string \
 	parse_utils \
+	pushs \
+	rev_rotate \
+	rotate \
 	sort_tmp \
+	swaps \
 
 BUILD_DIR	:= .obj/
 OBJS 		:= $(patsubst $(SRCSDIR)%.c,$(BUILD_DIR)%.o,$(SRCS))

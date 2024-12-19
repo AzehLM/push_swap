@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 14:01:13 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/19 13:42:25 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/19 20:10:21 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,6 @@ typedef enum e_exit
 	ERR_UNKNOWN
 }	t_exit_code;
 
-typedef struct s_array
-{
-	int	size;
-	int	*addr;
-}	t_array;
-
-typedef struct s_stacks
-{
-	t_array	a;
-	t_array	b;
-	t_array	tmp;
-}	t_stacks;
-
 typedef enum e_op
 {
 	SA,
@@ -55,6 +42,21 @@ typedef enum e_op
 	RRB,
 	RRR,
 }	t_op;
+
+typedef struct s_array
+{
+	int	size;
+	int	*addr;
+}	t_array;
+
+typedef struct s_stacks
+{
+	t_array	a;
+	t_array	b;
+	t_array	tmp;
+}	t_stacks;
+
+typedef void	(*t_operation)(t_stacks *);
 
 /*	----------- parsing ----------------------------------------------------- */
 
@@ -73,5 +75,21 @@ void	free_stacks(t_stacks *stacks);
 void	indexing(t_stacks *stacks, int i, int rank);
 void	init_stacks(t_stacks *stacks, int size);
 void	sort_tmp(t_stacks *stacks);
+
+/*	----------- operations -------------------------------------------------- */
+
+void	swap_a(t_stacks *stacks);
+void	swap_b(t_stacks *stacks);
+void	swap_both(t_stacks *stacks);
+void	push_a(t_stacks *stacks);
+void	push_b(t_stacks *stacks);
+void	rotate_a(t_stacks *stacks);
+void	rotate_b(t_stacks *stacks);
+void	rotate_both(t_stacks *stacks);
+void	rev_rotate_a(t_stacks *stacks);
+void	rev_rotate_b(t_stacks *stacks);
+void	rev_rotate_both(t_stacks *stacks);
+
+void	exec_operation(t_op op, t_stacks *stacks);
 
 #endif

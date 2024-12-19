@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 14:01:13 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/18 17:36:59 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/19 12:42:14 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,23 +30,16 @@ typedef enum e_exit
 
 typedef struct s_array
 {
-	int size;
-	int *addr;
+	int	size;
+	int	*addr;
 }	t_array;
 
 typedef struct s_stacks
 {
-	t_array a;
-	t_array b;
-	t_array tmp;
+	t_array	a;
+	t_array	b;
+	t_array	tmp;
 }	t_stacks;
-
-	int	*a;
-	int	*b;
-	int	*tmp;
-	int	size_a;
-	int	size_b;
-	int	size_tmp;
 
 typedef enum e_op
 {
@@ -65,17 +58,20 @@ typedef enum e_op
 
 /*	----------- parsing ----------------------------------------------------- */
 
-int		check_arg(int ac, char **av, int **stack_tmp);
-int		check_duplicates(int *stack_tmp, int size);
+int		check_arg(int ac, char **av, t_stacks *stacks);
+int		check_duplicates(int *stack, int size);
 int		check_out_of_range(const char *str);
-int		is_strdigit(const char *str);
+int		count_numbers(const char *str);
 int		get_stack_len(int *stack_tmp);
-
-int		parse_string(const char *str, int **stack_tmp);
+int		is_strdigit(const char *str);
 int		parse_params(int ac, char **av, int **stack_tmp);
+int		parse_string(const char *str, t_stacks *stacks);
 
-void	exit_with_error(t_exit_code error);
-void	indexing(int *stack_tmp, int *stack_a, int size);
-void	sort_tmp(int *stack_tmp, int size);
+void	exit_with_error(t_exit_code error_code);
+void	free_av1(char **split, int *stack, size_t size);
+void	free_stacks(t_stacks *stacks);
+void	indexing(t_stacks *stacks, int rank);
+void	init_stacks(t_stacks *stacks, int size);
+void	sort_tmp(t_stacks *stacks);
 
 #endif

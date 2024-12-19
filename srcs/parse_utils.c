@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:25:00 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/18 15:43:12 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/19 12:36:24 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,21 @@ int	check_out_of_range(const char *str)
 	return (1);
 }
 
-int	check_duplicates(int *stack_tmp, int size)
+int	check_duplicates(int *stack, int size)
 {
-	static int	i = 0;
+	int	i;
+	int	j;
 
-	while (i < size - 1)
+	i = 0;
+	while (i < size)
 	{
-		if (stack_tmp[i] == stack_tmp[i + 1])
-			return (0);
+		j = i + 1;
+		while (j < size)
+		{
+			if (stack[i] == stack[j])
+				return (0);
+			j++;
+		}
 		i++;
 	}
 	return (1);
@@ -74,4 +81,31 @@ int	get_stack_len(int *stack_tmp)
 	while (stack_tmp[len_stack] != '\0')
 		len_stack++;
 	return (len_stack);
+}
+
+int	count_numbers(const char *str)
+{
+	int	count;
+	int	i;
+
+	count = 0;
+	i = 0;
+	while (str && str[i])
+	{
+		while (str[i] && str[i] == ' ')
+			i++;
+		if (str[i])
+		{
+			if (str[i] == '-' || str[i] == '+')
+				i++;
+			if (!str[i] || !ft_isdigit(str[i]))
+				exit_with_error(ERR_NO_NUMERIC);
+			count++;
+			while (str[i] && ft_isdigit(str[i]))
+				i++;
+			if (str[i] && str[i] != ' ')
+				exit_with_error(ERR_NO_NUMERIC);
+		}
+	}
+	return (count);
 }

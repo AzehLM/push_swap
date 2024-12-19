@@ -6,37 +6,37 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 00:20:44 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/18 14:46:56 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/19 12:39:53 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	indexing(int *stack_tmp, int *stack_a, int size)
+void	indexing(t_stacks *stacks, int rank)
 {
 	static int	i = -1;
 	static int	j = 0;
 	int			*indexing_stack;
-	int			rank;
 
-	indexing_stack = malloc(sizeof(int) * size);
+	indexing_stack = malloc(sizeof(int) * stacks->tmp.size);
 	if (!indexing_stack)
-		exit_with_error(ERR_MALLOC);
-	while (++i < size)
-		indexing_stack[i] = stack_tmp[i];
-	i = 0;
-	while (i < size)
 	{
-		rank = 1;
-		j = 0;
-		while (j < size)
-		{
-			if (indexing_stack[j] < indexing_stack[i])
-				rank++;
-			j++;
-		}
-		stack_a[i] = rank;
-		i++;
+		free_stacks(stacks);
+		exit_with_error(ERR_MALLOC);
 	}
+	while (++i < stacks->tmp.size)
+		indexing_stack[i] = stacks->tmp.addr[i];
+	i = -1;
+	while (++i < stacks->tmp.size)
+	{
+		j = 0;
+		while (j < stacks->tmp.size)
+		{
+			if (indexing_stack[j++] < indexing_stack[i])
+				rank++;
+		}
+		stacks->a.addr[i] = rank;
+	}
+	stacks->a.size = stacks->tmp.size;
 	free(indexing_stack);
 }

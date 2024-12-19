@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 14:17:21 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/18 17:41:57 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/19 12:39:46 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,25 @@
 
 int	main(int ac, char **av)
 {
-	int			*stack_a;
-	int			*stack_b;
-	int			*stack_tmp;
 	t_stacks	stacks;
+	int			size;
 
-	init_stacks(stacks, size);
-	stack_tmp = NULL;
-	(void) stack_b;
-	(void) stack_a;
-	check_arg(ac, av, &stack_tmp);
-	stack_a = malloc(sizeof(int) * get_stack_len(stack_tmp));
-	indexing(stack_tmp, stack_a, get_stack_len(stack_tmp));
-	int i = 0;
+	if (ac < 2)
+		exit_with_error(ERR_NO_PARAMETERS);
+	if (ac == 2)
+		size = count_numbers(av[1]);
+	else
+		size = ac - 1;
+	init_stacks(&stacks, size);
+	check_arg(ac, av, &stacks);
+	indexing(&stacks, 1);
 	ft_printf("-------- Trié --------\n");
-	while (i < get_stack_len(stack_tmp))
-	{
-		ft_printf("stack_tmp[%d] : %d\n", i, stack_tmp[i]);
-		i++;
-	}
-	i = 0;
+	for (int i = 0; i < stacks.tmp.size; i++)
+		ft_printf("tmp[%d] : %d\n", i, stacks.tmp.addr[i]);
 	ft_printf("\n\n");
-	while (i < get_stack_len(stack_tmp))
-	{
-		ft_printf("stack_a[%d] : %d\n", i, stack_a[i]);
-		i++;
-	}
+	for (int i = 0; i < stacks.a.size; i++)
+		ft_printf("a[%d] : %d\n", i, stacks.a.addr[i]);
 	ft_printf("----------------------\n");
-	free(stack_tmp); // replace by free_stacks --> functions to free every stacks before exiting program.
-	//free_stacks(stacks);
+	free_stacks(&stacks);
 	exit(SUCCESS);
 }

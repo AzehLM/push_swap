@@ -6,36 +6,35 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 11:45:44 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/09 17:51:50 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/19 12:33:04 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_tmp(int *stack_tmp, int size)
+void	sort_tmp(t_stacks *stacks)
 {
 	static int	tmp = 0;
 	static int	i = 0;
 	static int	min;
 	static int	j;
 
-	while (i < size - 1)
+	while (i < stacks->tmp.size - 1)
 	{
 		min = i;
 		j = i + 1;
-		while (j < size)
+		while (j < stacks->tmp.size)
 		{
-			if (stack_tmp[j] < stack_tmp[min])
+			if (stacks->tmp.addr[j] < stacks->tmp.addr[min])
 				min = j;
 			j++;
 		}
 		if (min != i)
 		{
-			tmp = stack_tmp[i];
-			stack_tmp[i] = stack_tmp[min];
-			stack_tmp[min] = tmp;
+			tmp = stacks->tmp.addr[i];
+			stacks->tmp.addr[i] = stacks->tmp.addr[min];
+			stacks->tmp.addr[min] = tmp;
 		}
 		i++;
 	}
-	i = 0;
 }

@@ -6,12 +6,13 @@ override SRCS		= $(addprefix $(SRCSDIR), $(addsuffix .c, $(SRC)))
 
 SRC 		= \
 	check_arg \
+	indexing \
+	init_stacks \
 	main \
-	parse_string \
 	parse_params \
+	parse_string \
 	parse_utils \
 	sort_tmp \
-	indexing \
 
 BUILD_DIR	:= .obj/
 OBJS 		:= $(patsubst $(SRCSDIR)%.c,$(BUILD_DIR)%.o,$(SRCS))

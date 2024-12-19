@@ -45,7 +45,6 @@ parse_string -> tout ce qu'il faut pour parse uniquement une string
 parse_params -> tout ce qu'il faut pour parse plusieurs parametres
 parse_utils -> tout ce qui est necessaire pour parse et une string et plusieurs parametres
 free_alloc -> toutes les fonctions de free (string, params, stacks...)
-sort_tmp -> fonctions utilitaires a la stack temporaire (stack_tmp)
 
 
 LINKS:
@@ -63,23 +62,12 @@ https://automatic-saltopus-34b.notion.site/push_swap-c15e62229b9541d78fadec4d6aa
 
 
 
-TO DO :
-
-REFACTO CODE
-make sure stacks alloc initialisation is on another file
-check error etc maybe refacto aswell
-
-
-
 Nouvelle struct qui contient :
 
 - toutes les stacks
 - les tailles de chaque stacks, mise a jour a chaque swap de values entre a et b
 
 /!\ Neanmoins on malloc de la taille de stack_tmp (total de nombre = nombre de parametres)
-
-
-
 
 
 

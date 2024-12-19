@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 13:17:36 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/19 13:09:07 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/19 13:11:13 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ int	parse_string(const char *str, t_stacks *stacks)
 	while (split[size])
 		size++;
 	parse_string_err_management(size, split, stacks);
-	//sort_tmp(stacks);
 	if (!check_duplicates(stacks->tmp.addr, stacks->tmp.size))
 	{
 		free_av1(split, NULL, size);

@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 14:17:21 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/19 12:39:46 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/19 13:18:32 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int ac, char **av)
 		size = ac - 1;
 	init_stacks(&stacks, size);
 	check_arg(ac, av, &stacks);
-	indexing(&stacks, 1);
+	indexing(&stacks, -1, 1);
 	ft_printf("-------- Trié --------\n");
 	for (int i = 0; i < stacks.tmp.size; i++)
 		ft_printf("tmp[%d] : %d\n", i, stacks.tmp.addr[i]);

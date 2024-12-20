@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 12:17:52 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/20 13:02:02 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/20 18:39:03 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	sort_five_a(t_stacks *stacks)
 	while (stacks->a.size > 3)
 	{
 		min_pos = find_min_pos(stacks);
-		while (min_pos >0)
+		while (min_pos > 0)
 		{
 			if (min_pos <= stacks->a.size / 2)
 			{
@@ -89,7 +89,6 @@ void	sort_five_a(t_stacks *stacks)
 		exec_operation(PB, stacks);
 	}
 	sort_three_a(stacks);
-	while(stacks->b.size > 0)
+	while (stacks->b.size > 0)
 		exec_operation(PA, stacks);
 }
-

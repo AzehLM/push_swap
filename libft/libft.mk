@@ -6,14 +6,12 @@
 #    By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/14 10:09:03 by gueberso          #+#    #+#              #
-#    Updated: 2024/12/05 20:00:50 by gueberso         ###   ########.fr        #
+#    Updated: 2024/12/20 17:45:19 by gueberso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 override SRCSDIR	:= srcs/
 override SRCS		= $(addprefix $(SRCSDIR),$(SRC))
-
-SRC += $(addprefix $(CHARDIR), $(addsuffix .c, $(CHARSRC)))
 
 override CHARDIR	:= charset/
 override FDDIR		:= fd/
@@ -23,6 +21,8 @@ override INTDIR		:= int/
 override LISTDIR	:= list/
 override MEMORYDIR	:= memory/
 override STRINGDIR	:= string/
+
+SRC += $(addprefix $(CHARDIR), $(addsuffix .c, $(CHARSRC)))
 
 override CHARSRC := \
 	ft_isalnum \

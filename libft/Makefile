@@ -54,9 +54,6 @@ re: fclean all
 
 RESETC				:= \033[0m
 
-BGRED				:= \033[37;41m
-BGGREEN				:= \033[37;42m
-BGYELLOW			:= \033[37;43m
 GREEN_BOLD			:= \033[1;32m
 RED_BOLD			:= \033[1;31m
 CYAN				:= \033[0;36m

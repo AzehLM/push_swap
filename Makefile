@@ -1,22 +1,6 @@
 NAME	:= push_swap
 
-override SRCSDIR	:= srcs/
-
-override SRCS		= $(addprefix $(SRCSDIR), $(addsuffix .c, $(SRC)))
-
-SRC 		= \
-	check_arg \
-	indexing \
-	init_stacks \
-	init_tab_operations \
-	main \
-	parse_params \
-	parse_string \
-	parse_utils \
-	pushs \
-	rev_rotate \
-	rotate \
-	swaps \
+include push_swap.mk
 
 BUILD_DIR	:= .obj/
 OBJS 		:= $(patsubst $(SRCSDIR)%.c,$(BUILD_DIR)%.o,$(SRCS))
@@ -46,7 +30,7 @@ libft/libft.a: FORCE
 	@$(MAKE) -C libft
 
 $(BUILD_DIR)%.o: $(SRCSDIR)%.c
-	@$(DIR_DUP)
+	@mkdir -p $(dir $@)
 	@echo "$(CYAN)[Compiling]$(RESETC) $<"
 	@$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
 

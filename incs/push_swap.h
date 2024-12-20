@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 14:01:13 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/19 21:45:37 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/20 17:32:52 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,15 @@ void	rev_rotate_b(t_stacks *stacks);
 void	rev_rotate_both(t_stacks *stacks);
 
 void	exec_operation(t_op op, t_stacks *stacks);
+
+/*	----------- operations -------------------------------------------------- */
+
+void	sort_two_a(t_stacks *stacks);
+void	sort_three_a(t_stacks *stacks);
+void	sort_five_a(t_stacks *stacks);
+
+void	sort_two_b(t_stacks *stacks);
+void	sort_three_b(t_stacks *stacks);
+void	sort_five_b(t_stacks *stacks);
 
 #endif

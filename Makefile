@@ -6,6 +6,8 @@ BUILD_DIR	:= .obj/
 OBJS 		:= $(patsubst $(SRCSDIR)%.c,$(BUILD_DIR)%.o,$(SRCS))
 DEPS		:= $(OBJS:.o=.d)
 
+# ********** FLAGS AND COMPILATION FLAGS ************************************* #
+
 CC			:= cc
 CFLAGS		:= -Wall -Wextra -Werror -g3
 CPPFLAGS	:= -MMD -MP -I incs/ -I libft/incs/
@@ -13,11 +15,12 @@ CPPFLAGS	:= -MMD -MP -I incs/ -I libft/incs/
 RM			:= rm -f
 RMDIR		+= -r
 MAKEFLAGS	+= --no-print-directory
-DIR_DUP		= mkdir -p $(BUILD_DIR)
 
 .DEFAULT_GOAL	:= all
 
 -include $(DEPS)
+
+# ********** RULES *********************************************************** #
 
 .PHONY: all
 all: $(NAME)

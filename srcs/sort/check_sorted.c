@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 12:31:51 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/20 17:35:38 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/21 13:37:22 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,3 @@ int	is_sorted(t_stacks *stacks)
 	}
 	return (1);
 }
-
-//int	is_sorted_with_rotation()

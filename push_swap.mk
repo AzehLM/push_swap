@@ -6,7 +6,7 @@
 #    By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/20 17:53:12 by gueberso          #+#    #+#              #
-#    Updated: 2024/12/20 18:29:47 by gueberso         ###   ########.fr        #
+#    Updated: 2024/12/21 13:26:29 by gueberso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,8 +31,9 @@ override PARSESRC	:= \
 SRC += $(addprefix $(INITDIR), $(addsuffix .c, $(INITSRC)))
 
 override INITSRC	:= \
-	init_stacks \
-	init_tab_operations \
+	chunks \
+	stacks \
+	tab_operations \
 
 SRC += $(addprefix $(OPDIR), $(addsuffix .c, $(OPSRC)))
 
@@ -48,6 +49,8 @@ override SORTSRC	:= \
 	basic_sort_a \
 	basic_sort_b \
 	check_sorted \
+	sort \
+	
 
 SRC += $(addprefix $(MISCDIR), $(addsuffix .c, $(MISCSRC)))
 

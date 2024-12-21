@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 14:17:21 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/19 22:40:51 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/21 13:39:55 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,15 @@ int	main(int ac, char **av)
 	init_stacks(&stacks, size);
 	check_arg(ac, av, &stacks);
 	indexing(&stacks, -1, 1);
-	ft_printf("-------- Trié --------\n");
-	for (int i = 0; i < stacks.tmp.size; i++)
-		ft_printf("tmp[%d] : %d\n", i, stacks.tmp.addr[i]);
-	ft_printf("\n\n");
-	for (int i = 0; i < stacks.a.size; i++)
-		ft_printf("a[%d] : %d\n", i, stacks.a.addr[i]);
-	ft_printf("----------------------\n");
+	if (!is_sorted(&stacks))
+	{
+		if (stacks.tmp.size <= 3)
+			sort_three_a(&stacks);
+		else if (stacks.tmp.size <= 5)
+			sort_five_a(&stacks);
+		else
+			sort_hmoon(&stacks);
+	}
 	free_stacks(&stacks);
 	exit(SUCCESS);
 }

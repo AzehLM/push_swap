@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 14:01:13 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/20 17:32:52 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/21 13:26:17 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,16 @@ typedef enum e_op
 	RRB,
 	RRR,
 }	t_op;
+
+typedef struct s_chunk
+{
+	int	size;
+	int	start;
+	int	end;
+	int	min;
+	int	max;
+	int	total_chuncks;
+}	t_chunk;
 
 typedef struct s_array
 {
@@ -100,5 +110,18 @@ void	sort_five_a(t_stacks *stacks);
 void	sort_two_b(t_stacks *stacks);
 void	sort_three_b(t_stacks *stacks);
 void	sort_five_b(t_stacks *stacks);
+
+/*	----------- chunk_related ----------------------------------------------- */
+
+int		is_chunk_empty(t_stacks *stacks, t_chunk *chunk);
+
+void	init_chunk(t_stacks *stacks, t_chunk *chunk);
+void	next_chunk(t_chunk *chunk);
+void	update_chunk(t_stacks *stacks, t_chunk *chunk);
+
+
+int		is_sorted(t_stacks *stacks);
+void	sort_hmoon(t_stacks *stacks);
+
 
 #endif

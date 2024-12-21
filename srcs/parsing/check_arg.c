@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 16:53:40 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/21 13:51:20 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/21 22:39:01 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,4 @@ int	check_arg(int ac, char **av, t_stacks *stacks)
 	else if (ac > 2 && parse_params(ac, av, stacks) == 0)
 		return (0);
 	return (0);
-
-	// if (ac < 2)
-	// 	exit_with_error(ERR_NO_PARAMETERS);
-	// else if (ac == 2 && par)
-
 }

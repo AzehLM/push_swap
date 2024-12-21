@@ -6,17 +6,11 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 12:30:20 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/21 19:36:46 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/21 22:39:14 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// static void	move_bottom_a(t_stacks *stacks)
-// {
-// 	if (stacks->a.addr[stacks->a.size - 1] == stacks->a.addr[0] - 1)
-// 		exec_operation(RRA, stacks);
-// }
 
 static void	sort_by_chunk(t_stacks *stacks, t_chunk *chunk)
 {
@@ -24,7 +18,6 @@ static void	sort_by_chunk(t_stacks *stacks, t_chunk *chunk)
 
 	while (stacks->a.size > 0)
 	{
-		//move_bottom_a(stacks);
 		update_chunk(stacks, chunk);
 		if (!is_chunk_empty(stacks, chunk))
 		{
@@ -93,5 +86,3 @@ void	sort_hmoon(t_stacks *stacks)
 	while (stacks->b.size > 0)
 		push_back(stacks);
 }
-
-

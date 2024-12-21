@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_tab_operations.c                              :+:      :+:    :+:   */
+/*   tab_operations.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 20:02:43 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/19 21:39:01 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/21 22:53:44 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	exec_operation(t_op op, t_stacks *stacks)
 {
-	static const t_operation	operations[] = {\
+	const t_operation	operations[] = {\
 		[SA] = &swap_a, \
 		[SB] = &swap_b, \
 		[SS] = &swap_both, \

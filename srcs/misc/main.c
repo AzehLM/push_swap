@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 14:17:21 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/21 13:39:55 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/21 23:56:50 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,7 @@ int	main(int ac, char **av)
 	check_arg(ac, av, &stacks);
 	indexing(&stacks, -1, 1);
 	if (!is_sorted(&stacks))
-	{
-		if (stacks.tmp.size <= 3)
-			sort_three_a(&stacks);
-		else if (stacks.tmp.size <= 5)
-			sort_five_a(&stacks);
-		else
-			sort_hmoon(&stacks);
-	}
+		sort_hmoon(&stacks);
 	free_stacks(&stacks);
 	exit(SUCCESS);
 }

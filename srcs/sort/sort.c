@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 12:30:20 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/21 22:39:14 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/22 00:06:16 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	sort_by_chunk(t_stacks *stacks, t_chunk *chunk)
 		{
 			middle = (chunk->min + chunk->max) / 2;
 			exec_operation(PB, stacks);
-			chunk->end += 1;
+			chunk->end++;
 			if (stacks->b.addr[0] > middle)
 				exec_operation(RB, stacks);
 		}
@@ -81,6 +81,16 @@ void	sort_hmoon(t_stacks *stacks)
 {
 	t_chunk	chunk;
 
+	if (stacks->a.size <= 3)
+	{
+		sort_three_a(stacks);
+		return ;
+	}
+	else if (stacks->a.size <= 5)
+	{
+		sort_five_a(stacks);
+		return ;
+	}
 	init_chunk(stacks, &chunk);
 	sort_by_chunk(stacks, &chunk);
 	while (stacks->b.size > 0)

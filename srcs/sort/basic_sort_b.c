@@ -6,17 +6,11 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:29:29 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/21 18:57:08 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/22 00:16:35 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	sort_two_b(t_stacks *stacks)
-{
-	if (stacks->b.addr[0] > stacks->b.addr[1])
-		exec_operation(SB, stacks);
-}
 
 void	sort_three_b(t_stacks *stacks)
 {

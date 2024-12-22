@@ -6,7 +6,7 @@
 #    By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/20 17:53:12 by gueberso          #+#    #+#              #
-#    Updated: 2024/12/22 12:56:12 by gueberso         ###   ########.fr        #
+#    Updated: 2024/12/22 13:25:06 by gueberso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,6 @@ override PARSEDIR	:= parsing/
 override INITDIR	:= init/
 override OPDIR		:= operations/
 override SORTDIR	:= sort/
-override MISCDIR	:= misc/
 
 SRC	+= $(addprefix $(PARSEDIR), $(addsuffix .c, $(PARSESRC)))
 
@@ -48,11 +47,5 @@ SRC += $(addprefix $(SORTDIR), $(addsuffix .c, $(SORTSRC)))
 override SORTSRC	:= \
 	basic_sort_a \
 	check_sorted \
+	push_swap \
 	sort \
-	
-
-SRC += $(addprefix $(MISCDIR), $(addsuffix .c, $(MISCSRC)))
-
-override MISCSRC	:= \
-	main \
-

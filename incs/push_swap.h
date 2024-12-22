@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 14:01:13 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/22 11:48:07 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/22 13:22:43 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,14 +101,6 @@ void	rev_rotate_both(t_stacks *stacks);
 
 void	exec_operation(t_op op, t_stacks *stacks);
 
-/*	----------- operations -------------------------------------------------- */
-
-void	sort_three_a(t_stacks *stacks);
-void	sort_five_a(t_stacks *stacks);
-
-void	sort_three_b(t_stacks *stacks);
-void	sort_five_b(t_stacks *stacks);
-
 /*	----------- chunk_related ----------------------------------------------- */
 
 int		is_chunk_empty(t_stacks *stacks, t_chunk *chunk);
@@ -117,10 +109,9 @@ void	init_chunk(t_stacks *stacks, t_chunk *chunk);
 void	next_chunk(t_chunk *chunk);
 void	update_chunk(t_stacks *stacks, t_chunk *chunk);
 
-/*	----------- sorting ----------------------------------------------------- */
+/*	----------- sort -------------------------------------------------------- */
 
-int		is_sorted(t_stacks *stacks);
-
+void	sort_five_a(t_stacks *stacks);
 void	sort_hmoon(t_stacks *stacks);
 
 #endif

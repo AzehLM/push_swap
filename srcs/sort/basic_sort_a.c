@@ -6,13 +6,19 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 12:17:52 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/22 12:40:22 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/22 13:20:27 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_three_a(t_stacks *stacks)
+static void	sort_two_a(t_stacks *stacks)
+{
+	if (stacks->a.addr[0] > stacks->a.addr[1])
+		exec_operation(SA, stacks);
+}
+
+static void	sort_three_a(t_stacks *stacks)
 {
 	int	a;
 	int	b;
@@ -64,6 +70,8 @@ void	sort_five_a(t_stacks *stacks)
 {
 	int	min_pos;
 
+	if (stacks->a.size == 2)
+		return (sort_two_a(stacks));
 	while (stacks->a.size > 3)
 	{
 		min_pos = find_min_pos(stacks);

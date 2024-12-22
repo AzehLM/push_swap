@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 12:30:20 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/22 12:45:50 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/22 13:16:18 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	sort_by_chunk_2nd_part(t_stacks *stacks, t_chunk *chunk)
 		chunk->end++;
 		if (stacks->b.addr[0] > middle)
 			exec_operation(RB, stacks);
-		}
+	}
 }
 
 static void	sort_by_chunk(t_stacks *stacks, t_chunk *chunk)

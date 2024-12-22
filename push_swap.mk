@@ -6,7 +6,7 @@
 #    By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/20 17:53:12 by gueberso          #+#    #+#              #
-#    Updated: 2024/12/21 13:26:29 by gueberso         ###   ########.fr        #
+#    Updated: 2024/12/22 12:56:12 by gueberso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,6 @@ SRC += $(addprefix $(SORTDIR), $(addsuffix .c, $(SORTSRC)))
 
 override SORTSRC	:= \
 	basic_sort_a \
-	basic_sort_b \
 	check_sorted \
 	sort \
 	

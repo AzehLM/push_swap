@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 19:41:27 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/08 18:09:44 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/22 18:16:52 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 # include <stdio.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
+#  define BUFFER_SIZE 10
 # endif
 
 # ifndef MAX_FD
 #  define MAX_FD FOPEN_MAX
 # endif
 
-size_t	ft_strlen(const char *str);
+size_t	ft_strlen_gnl(const char *str);
 
 char	*ft_strchr(const char *s, int c);
 char	*ft_strjoin(const char *s1, const char *s2);

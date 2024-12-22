@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 19:40:00 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/08 18:09:55 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/22 18:33:03 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*clean_buffer(char *buffer)
 		return (NULL);
 	}
 	i++;
-	new_buffer = malloc(sizeof(char) * (ft_strlen(buffer + i) + 1));
+	new_buffer = malloc(sizeof(char) * (ft_strlen_gnl(buffer + i) + 1));
 	if (!new_buffer)
 		return (NULL);
 	j = 0;
@@ -60,26 +60,24 @@ char	*read_file(int fd, char *buffer, int bytes_read)
 
 	temp = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!temp)
-		return (NULL);
+		return (free(buffer), NULL);
 	while (bytes_read > 0)
 	{
 		bytes_read = read(fd, temp, BUFFER_SIZE);
 		if (bytes_read < 0)
-		{
-			free(temp);
-			return (NULL);
-		}
+			return (free(temp), free(buffer), NULL);
 		if (bytes_read == 0)
 			break ;
 		temp[bytes_read] = '\0';
 		old_buffer = buffer;
 		buffer = ft_strjoin(buffer, temp);
+		if (!buffer)
+			return (NULL);
 		free(old_buffer);
 		if (!buffer || ft_strchr(buffer, '\n'))
 			break ;
 	}
-	free(temp);
-	return (buffer);
+	return (free(temp), buffer);
 }
 
 char	*get_next_line(int fd)
@@ -102,5 +100,10 @@ char	*get_next_line(int fd)
 	old_buffer = buffer[fd];
 	buffer[fd] = clean_buffer(buffer[fd]);
 	free(old_buffer);
+	if (ft_strlen_gnl(buffer[fd]) == 0)
+	{
+		free(buffer[fd]);
+		buffer[fd] = NULL;
+	}
 	return (line);
 }

@@ -6,13 +6,13 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 19:40:45 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/08 18:09:13 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/22 15:12:40 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen_gnl(const char *str)
 {
 	size_t	i;
 
@@ -28,7 +28,7 @@ char	*ft_strdup_secured(const char *str)
 	size_t		len;
 	size_t		i;
 
-	len = ft_strlen(str);
+	len = ft_strlen_gnl(str);
 	dup = malloc(sizeof(char) * (len + 1));
 	if (!dup)
 		return (NULL);
@@ -54,8 +54,8 @@ char	*ft_strjoin(const char *s1, const char *s2)
 		return (ft_strdup_secured(s2));
 	if (!s2)
 		return (ft_strdup_secured(s1));
-	len_s1 = (size_t) ft_strlen(s1);
-	res = malloc(sizeof(char) * (len_s1 + ft_strlen(s2) + 1));
+	len_s1 = (size_t) ft_strlen_gnl(s1);
+	res = malloc(sizeof(char) * (len_s1 + ft_strlen_gnl(s2) + 1));
 	if (!res)
 		return (NULL);
 	i = -1;
@@ -76,7 +76,7 @@ char	*ft_substr_secured(char const *s, unsigned int start, size_t len)
 
 	if (!s)
 		return (NULL);
-	s_len = ft_strlen(s);
+	s_len = ft_strlen_gnl(s);
 	if (start >= s_len)
 		return (NULL);
 	if (len > s_len - start)

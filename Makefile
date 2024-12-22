@@ -45,7 +45,7 @@ $(BUILD_DIR)%.o: $(SRCSDIR)%.c
 .PHONY: bonus
 bonus: .bonus
 
-.bonus: libft/libft.a $(OBJSB)
+.bonus: libft/libft.a $(OBJSB)	
 	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $(BONUS) $(OBJSB) -L libft -lft
 	@echo "\n$(GREEN_BOLD)✓ $(BONUS) is ready$(RESETC)"
 	@touch .bonus

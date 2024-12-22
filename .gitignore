@@ -7,7 +7,7 @@
 *.out
 
 libft.a
-push_swap
+
 DELETE.c
 
 tmp.c

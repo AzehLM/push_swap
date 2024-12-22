@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 14:01:13 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/22 13:22:43 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/22 16:25:38 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,8 @@ void	next_chunk(t_chunk *chunk);
 void	update_chunk(t_stacks *stacks, t_chunk *chunk);
 
 /*	----------- sort -------------------------------------------------------- */
+
+int		is_sorted(t_stacks *stacks);
 
 void	sort_five_a(t_stacks *stacks);
 void	sort_hmoon(t_stacks *stacks);

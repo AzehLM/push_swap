@@ -1,10 +1,14 @@
 NAME	:= push_swap
 
+BONUS	:= checker
+
 include push_swap.mk
 
 BUILD_DIR	:= .obj/
 OBJS 		:= $(patsubst $(SRCSDIR)%.c,$(BUILD_DIR)%.o,$(SRCS))
+OBJSB		:= $(patsubst $(SRCSDIR)%.c,$(BUILD_DIR)%.o,$(SRCSBONUS))
 DEPS		:= $(OBJS:.o=.d)
+DEPSB		:= $(OBJSB:.o=.d)
 
 # ********** FLAGS AND COMPILATION FLAGS ************************************* #
 
@@ -19,20 +23,34 @@ MAKEFLAGS	+= --no-print-directory
 .DEFAULT_GOAL	:= all
 
 -include $(DEPS)
+-include $(DEPSB)
 
 # ********** RULES *********************************************************** #
 
 .PHONY: all
 all: $(NAME)
 
-$(NAME): libft/libft.a Makefile $(OBJS) 
+$(NAME): libft/libft.a $(OBJS) 
 	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $(NAME) $(OBJS) -L libft -lft
-	@echo "\n$(GREEN_BOLD)✓ $(NAME) is ready$(RESETC)"
+	@echo "\n$(GREEN_BOLD)✓ $(NAME) is ready$(RESETC)\n"
 
 libft/libft.a: FORCE
-	@$(MAKE) -C libft
+	@$(MAKE) -C libft/
 
 $(BUILD_DIR)%.o: $(SRCSDIR)%.c
+	@mkdir -p $(dir $@)
+	@echo "$(CYAN)[Compiling]$(RESETC) $<"
+	@$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
+
+.PHONY: bonus
+bonus: .bonus
+
+.bonus: libft/libft.a $(OBJSB)
+	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $(BONUS) $(OBJSB) -L libft -lft
+	@echo "\n$(GREEN_BOLD)✓ $(BONUS) is ready$(RESETC)"
+	@touch .bonus
+
+$(BUILD_DIR)checker/%.o: $(SRCSDIR)checker/%.c $(NAME)
 	@mkdir -p $(dir $@)
 	@echo "$(CYAN)[Compiling]$(RESETC) $<"
 	@$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
@@ -40,13 +58,13 @@ $(BUILD_DIR)%.o: $(SRCSDIR)%.c
 .PHONY: clean
 clean:
 	@$(MAKE) clean -C libft/
-	@$(RM) $(OBJS) $(DEPS)
+	@$(RM) $(OBJS) $(DEPS) $(OBJSB) $(DEPSB) .bonus
 	@echo "$(RED_BOLD)[Cleaning]$(RESETC)"
 
 .PHONY: fclean
 fclean: clean
 	@$(MAKE) fclean -C libft/
-	$(RM) $(RMDIR) $(NAME) $(BUILD_DIR)
+	$(RM) $(RMDIR) $(NAME) $(BONUS) $(BUILD_DIR)
 	@echo "$(RED_BOLD)✓ push_swap is fully cleaned!$(RESETC)"
 
 .PHONY: re

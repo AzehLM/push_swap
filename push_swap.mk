@@ -6,17 +6,20 @@
 #    By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/20 17:53:12 by gueberso          #+#    #+#              #
-#    Updated: 2024/12/22 13:43:00 by gueberso         ###   ########.fr        #
+#    Updated: 2024/12/22 14:06:47 by gueberso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 override SRCSDIR	:= srcs/
 override SRCS		= $(addprefix $(SRCSDIR), $(SRC))
+override SRCSBONUS	= $(addprefix $(SRCSDIR), $(SRCBONUS))
+
 
 override PARSEDIR	:= parsing/
 override INITDIR	:= init/
 override OPDIR		:= operations/
 override SORTDIR	:= sort/
+override CHECKERDIR	:= checker/
 
 SRC	+= $(addprefix $(PARSEDIR), $(addsuffix .c, $(PARSESRC)))
 
@@ -48,3 +51,8 @@ override SORTSRC	:= \
 	basic_sort_a \
 	push_swap \
 	sort \
+
+SRCBONUS += $(addprefix $(CHECKERDIR), $(addsuffix .c, $(CHECKERSRC)))
+
+override CHECKERSRC	:= \
+	checker \

@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 13:17:36 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/19 13:11:13 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/22 13:56:22 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	parse_string_err_management(int size, char **spt, t_stacks *stacks)
 		if (!check_out_of_range(spt[i]))
 		{
 			free_stacks(stacks);
-			free_av1(spt, stacks->tmp.addr, size);
+			free_av1(spt, NULL, size);
 			exit_with_error(ERR_OUT_OF_RANGE);
 		}
 		stacks->tmp.addr[i] = ft_atoi(spt[i]);
@@ -66,8 +66,8 @@ int	parse_string(const char *str, t_stacks *stacks)
 	parse_string_err_management(size, split, stacks);
 	if (!check_duplicates(stacks->tmp.addr, stacks->tmp.size))
 	{
-		free_av1(split, NULL, size);
 		free_stacks(stacks);
+		free_av1(split, NULL, size);
 		exit_with_error(ERR_DUPLICATE);
 	}
 	free_av1(split, NULL, size);

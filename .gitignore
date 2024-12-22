@@ -1,5 +1,6 @@
 .build/
 .obj/
+.bonus
 
 *.d
 *.o
@@ -14,3 +15,4 @@ tmp.c
 push_swap_visualizer
 push_swap_tester
 checker_linux
+checker

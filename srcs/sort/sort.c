@@ -6,17 +6,34 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 12:30:20 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/22 00:06:16 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/22 12:45:50 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static void	sort_by_chunk_2nd_part(t_stacks *stacks, t_chunk *chunk)
+{
+	int	middle;
+
+	if (stacks->a.addr[0] > stacks->tmp.size - 5)
+		exec_operation(RA, stacks);
+	else
+	{
+		middle = (chunk->min + chunk->max) / 2;
+		exec_operation(PB, stacks);
+		chunk->end++;
+		if (stacks->b.addr[0] > middle)
+			exec_operation(RB, stacks);
+		}
+}
+
 static void	sort_by_chunk(t_stacks *stacks, t_chunk *chunk)
 {
 	int		middle;
 
-	while (stacks->a.size > 0)
+	middle = 0;
+	while (stacks->a.size > 5)
 	{
 		update_chunk(stacks, chunk);
 		if (!is_chunk_empty(stacks, chunk))
@@ -26,13 +43,7 @@ static void	sort_by_chunk(t_stacks *stacks, t_chunk *chunk)
 		}
 		if (stacks->a.addr[0] >= chunk->start \
 			&& stacks->a.addr[0] <= chunk->end)
-		{
-			middle = (chunk->min + chunk->max) / 2;
-			exec_operation(PB, stacks);
-			chunk->end++;
-			if (stacks->b.addr[0] > middle)
-				exec_operation(RB, stacks);
-		}
+			sort_by_chunk_2nd_part(stacks, chunk);
 		else
 			exec_operation(RA, stacks);
 	}
@@ -81,18 +92,9 @@ void	sort_hmoon(t_stacks *stacks)
 {
 	t_chunk	chunk;
 
-	if (stacks->a.size <= 3)
-	{
-		sort_three_a(stacks);
-		return ;
-	}
-	else if (stacks->a.size <= 5)
-	{
-		sort_five_a(stacks);
-		return ;
-	}
 	init_chunk(stacks, &chunk);
 	sort_by_chunk(stacks, &chunk);
+	sort_five_a(stacks);
 	while (stacks->b.size > 0)
 		push_back(stacks);
 }

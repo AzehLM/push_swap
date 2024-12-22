@@ -37,14 +37,7 @@ ROAD_MAP PARSING:
 - 3e possibilite : pas de parametre, on return sur le prompt.
 
 
-NOMS FICHIERS:
 
-push_swap.c -> main + misc ?
-check_arg.c -> redirection parsing + exit_with_error conditions
-parse_string -> tout ce qu'il faut pour parse uniquement une string
-parse_params -> tout ce qu'il faut pour parse plusieurs parametres
-parse_utils -> tout ce qui est necessaire pour parse et une string et plusieurs parametres
-free_alloc -> toutes les fonctions de free (string, params, stacks...)
 
 
 LINKS:
@@ -79,3 +72,19 @@ Finir par une fonction de verification de tri :
 - possibilite que les parametres aient ete envoye dans lordre, pas besoin de trier on peut directement sortir
 - Evite de check a chaque fois que des valeurs ont ete deplacees.
  
+
+
+NOMS FICHIERS:
+
+push_swap.c -> main + misc ?
+check_arg.c -> redirection parsing + exit_with_error conditions
+parse_string -> tout ce qu'il faut pour parse uniquement une string
+parse_params -> tout ce qu'il faut pour parse plusieurs parametres
+parse_utils -> tout ce qui est necessaire pour parse et une string et plusieurs parametres
+free_alloc -> toutes les fonctions de free (string, params, stacks...)
+
+REFACTO IMPORTANT : 
+
+- nom fonctions
+- nom variables
+

@@ -6,7 +6,7 @@
 /*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 17:29:29 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/22 00:16:35 by gueberso         ###   ########.fr       */
+/*   Updated: 2024/12/22 12:40:38 by gueberso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,4 @@ void	sort_five_b(t_stacks *stacks)
 		exec_operation(PA, stacks);
 	}
 	sort_three_a(stacks);
-	while (stacks->a.size > 0)
-		exec_operation(PB, stacks);
 }

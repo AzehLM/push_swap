@@ -3,15 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gueberso <gueberso@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 14:17:07 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/22 19:10:10 by gueberso         ###   ########.fr       */
+/*   Updated: 2025/09/25 22:08:37 by gueberso         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "get_next_line.h"
+
+static void	exec_operation_checker(t_op op, t_stacks *stacks)
+{
+	const t_operation	operations[] = {\
+		[SA] = &swap_a_checker, \
+		[SB] = &swap_b_checker, \
+		[SS] = &swap_both_checker, \
+		[PA] = &push_a_checker, \
+		[PB] = &push_b_checker, \
+		[RA] = &rotate_a_checker, \
+		[RB] = &rotate_b_checker, \
+		[RR] = &rotate_both_checker, \
+		[RRA] = &rev_rotate_a_checker, \
+		[RRB] = &rev_rotate_b_checker, \
+		[RRR] = &rev_rotate_both_checker
+	};
+
+	if (op >= SA && op <= RRR)
+		operations[op](stacks);
+}
 
 static int	read_and_execute_op(t_stacks *stacks, char *line)
 {
@@ -26,7 +46,7 @@ static int	read_and_execute_op(t_stacks *stacks, char *line)
 	{
 		if (!ft_strncmp(line, op_names[i], ft_strlen(op_names[i])))
 		{
-			exec_operation(i, stacks);
+			exec_operation_checker(i, stacks);
 			return (1);
 		}
 		i++;

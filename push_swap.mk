@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    push_swap.mk                                       :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+         #
+#    By: gueberso <gueberso@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/20 17:53:12 by gueberso          #+#    #+#              #
-#    Updated: 2024/12/22 16:49:17 by gueberso         ###   ########.fr        #
+#    Updated: 2025/09/25 22:05:53 by gueberso         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,10 @@ override PARSEDIR	:= parsing/
 override INITDIR	:= init/
 override OPDIR		:= operations/
 override SORTDIR	:= sort/
-override CHECKERDIR	:= checker/
 override PSDIR		:= push_swap/
+
+override CHECKERDIR		:= checker/
+override OPDIR_CHECKER	:= $(CHECKERDIR)operations_bonus/
 
 
 SRC	+= $(addprefix $(PSDIR), $(addsuffix .c, $(PSSRC)))
@@ -60,6 +62,13 @@ override SORTSRC	:= \
 SRCBONUS += $(filter-out $(addprefix $(PSDIR), $(addsuffix .c, $(PSSRC))), $(SRC))
 SRCBONUS += $(addprefix $(CHECKERDIR), $(addsuffix .c, $(CHECKERSRC)))
 
-
 override CHECKERSRC	:= \
 	checker \
+
+SRCBONUS += $(addprefix $(OPDIR_CHECKER), $(addsuffix .c, $(OPDIR_CHECKERSRC)))
+
+override OPDIR_CHECKERSRC := \
+	pushs \
+	rev_rotate \
+	rotate \
+	swaps

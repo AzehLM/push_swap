@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gueberso <gueberso@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gueberso <gueberso@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 14:01:13 by gueberso          #+#    #+#             */
-/*   Updated: 2024/12/22 16:25:38 by gueberso         ###   ########.fr       */
+/*   Updated: 2025/09/25 22:08:29 by gueberso         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,20 @@ void	rev_rotate_b(t_stacks *stacks);
 void	rev_rotate_both(t_stacks *stacks);
 
 void	exec_operation(t_op op, t_stacks *stacks);
+
+/*	----------- checker_operations ------------------------------------------ */
+
+void	swap_a_checker(t_stacks *stacks);
+void	swap_b_checker(t_stacks *stacks);
+void	swap_both_checker(t_stacks *stacks);
+void	push_a_checker(t_stacks *stacks);
+void	push_b_checker(t_stacks *stacks);
+void	rotate_a_checker(t_stacks *stacks);
+void	rotate_b_checker(t_stacks *stacks);
+void	rotate_both_checker(t_stacks *stacks);
+void	rev_rotate_a_checker(t_stacks *stacks);
+void	rev_rotate_b_checker(t_stacks *stacks);
+void	rev_rotate_both_checker(t_stacks *stacks);
 
 /*	----------- chunk_related ----------------------------------------------- */
 
